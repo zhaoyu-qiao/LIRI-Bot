@@ -10,25 +10,35 @@ function concertThis() {
     for (let i = 3; i < process.argv.length; i++) {
         if (i > 3 && i < process.argv.length) {
             artist = artist + "+" + process.argv[i]; // This is wrong
-            console.log(artist);
+            //console.log(artist);
         } else {
             artist += process.argv[i];
             //console.log(artist);
         }
 
     }
-    getConcertInfo();
+    getConcertInfo(artist);
 };
 // use slice(), every index after [2] will be the artist name.
 // use axios.get to collect information of the concert
-function getConcertInfo() {
-    axios.get("https://rest.bandsintown.com/artists/" + artist + "/events?app_id=codingbootcamp").then(
+function getConcertInfo(band) {
+    axios.get("https://rest.bandsintown.com/artists/" + band + "/events?app_id=codingbootcamp").then(
         function (response) {
             let concertInfo = response.data[0];
             console.log("Venue name: ", concertInfo.venue.name);
-            console.log("Countrt: ", concertInfo.venue.country);
+            console.log("Country: ", concertInfo.venue.country);
             console.log("City: ", concertInfo.venue.city);
             console.log("Date", concertInfo.datetime);
+            let concert = {
+                venueName: concertInfo.venue.name,
+                country: concertInfo.venue.country,
+                city: concertInfo.venue.city,
+                date: concertInfo.datetime
+            }
+            fs.appendFile('log.txt', JSON.stringify(concert), (err) => {
+                if (err) throw err;
+                console.log('The "data to append" was appended to file!');
+            });
 
         }).
     // handle errors
@@ -81,7 +91,7 @@ function spotifyThisSong() {
     for (let i = 3; i < process.argv.length; i++) {
         if (i > 3 && i < process.argv.length) {
             query = query + " " + process.argv[i];
-            console.log(query);
+            //console.log(query);
         } else {
             query += process.argv[i];
         }
@@ -111,7 +121,16 @@ function getSongInfo(search) {
             "\n Preview Link:\n", previewLink,
             "\n Album:\n", album,
         )
-
+        let song = {
+            artists: artists,
+            name: name,
+            previewLink: previewLink,
+            album: album
+        }
+        fs.appendFile('log.txt', JSON.stringify(song), (err) => {
+            if (err) throw err;
+            console.log('The "data to append" was appended to file!');
+        });
     });
 
 }
@@ -161,6 +180,19 @@ function getMovieInfo(movieName) { //moviename as title in api
             console.log("Language: ", movieInfo.Language);
             console.log("Plot: ", movieInfo.Plot);
             console.log("Actors: ", movieInfo.Actors);
+            let movie = {
+                title: movieInfo.Title,
+                year: movieInfo.Year,
+                iMDBRating: movieInfo.imdbRating,
+                country: movieInfo.Country,
+                language: movieInfo.Language,
+                pilot: movieInfo.Plot,
+                actors: movieInfo.Actors
+            }
+            fs.appendFile('log.txt', JSON.stringify(movie), (err) => {
+                if (err) throw err;
+                console.log('The "data to append" was appended to file!');
+            });
         }).
     // handle errors
     catch(function (error) {
@@ -189,13 +221,58 @@ function getMovieInfo(movieName) { //moviename as title in api
 if (process.argv[2] === "movie-this" && process.argv.length === 3) {
     let setMovie = "Mr.+Nobody";
     getMovieInfo(setMovie);
-} else {
+}
+if (process.argv[2] === "movie-this" && process.argv.length > 3) {
     movieThis();
 };
 
 //=================== End movie-this =====================================
 
 
-// movie-this
-// do-what-it-says 
-// node liri.js spotify-this-song '<song name here>'
+//=================== Do what is says ====================================
+//read file and call function
+const fs = require('fs');
+fs.readFile("random.txt", "utf8", function (error, data) {
+
+    // If the code experiences any errors it will log the error to the console.
+    if (error) {
+        return console.log(error);
+    }
+
+    // We will then print the contents of data
+    //console.log(data);
+
+
+    // Then split it by commas (to make it more readable)
+    let dataArr = data.split(",");
+
+    // We will then re-display the content as an array for later use.
+    //console.log(dataArr);
+    if (process.argv[2] === "do-what-it-says" && process.argv.length === 3) {
+        if (dataArr[0] === "spotify-this-song") {
+            getSongInfo(dataArr[1]);
+        } else if (dataArr[0] === "concert-this") {
+            getConcertInfo(dataArr[1]);
+        } else if (dataArr[0] === "movie-this") {
+            getMovieInfo(dataArr[1]);
+        }
+    }
+
+    // if else statement to match different commands
+
+});
+
+
+
+//==================== do-what-it-says ===================================
+
+
+
+
+
+
+
+
+
+
+//==================== End do-what-it-says ===============================
