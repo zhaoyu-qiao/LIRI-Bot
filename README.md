@@ -1,40 +1,37 @@
 # LIRI-Bot
 
 
-# LIRI-Bot is short for Interpretation and Recognition Interface, what it does is to take in different commands from the user input and display the proper information according to the commands.
+LIRI-Bot is short for Interpretation and Recognition Interface, what it does is to take in different commands from the user input and display the proper information according to the commands.
 
-# This app has a main js file liri.js which covers four functions which takes in four different commands - "concert-this","spotify-this-song","movie-this","do-what-it-says".
+This app has a main js file liri.js which covers four functions which takes in four different commands - "concert-this","spotify-this-song","movie-this","do-what-it-says".
 
-# concert-this takes in an input of an artist and displays the most recent event for this artist.
+concert-this takes in an input of an artist and displays the most recent event for this artist.
 
-# spotify-this-song takes in an input of a song name and displays information about this song, also provide a link to the song for playing.
+spotify-this-song takes in an input of a song name and displays information about this song, also provide a link to the song for playing.
 
-# movie-this takes in an input of movie name and provides related information about the movie.
+movie-this takes in an input of movie name and provides related information about the movie.
 
-# The above three functions basically require information from their own api.
+The above three functions basically require information from their own api.
 
-# do-what-it-says function takes in the text in the random.txt file, and execute the command written there.
+do-what-it-says function takes in the text in the random.txt file, and execute the command written there.
 
-# In order to run the app on your own laptop, you would need your own .env file and save your key information in your local folder in the below format:
+In order to run the app on your own laptop, you would need your own .env file and save your key information in your local folder in the below format:
 
-# Spotify API keys
+Spotify API keys
+SPOTIFY_ID=<your SPOTIFY_ID>
+SPOTIFY_SECRET=<your SPOTIFY_SECRET>
 
-# SPOTIFY_ID=<your SPOTIFY_ID>
+OMDB API key
+OMDB_KEY=<your OMDB_KEY>
 
-# SPOTIFY_SECRET=<your SPOTIFY_SECRET>
+To run the app, please check out the below video, basically you need to specify the command and the input to retrieve information.
 
-# OMDB API key
+https://www.youtube.com/watch?v=RsPTkIU5oJo
 
-# OMDB_KEY=<your OMDB_KEY>
+You can also log the output into the log.txt file.
 
-# To run the app, please check out the below video, basically you need to specify the command and the input to retrieve information.
+Technologies used in the app
 
-# https://www.youtube.com/watch?v=RsPTkIU5oJo
+npm,axios,inquire,fs,
 
-# You can also log the output into the log.txt file.
-
-# Technologies used in the app
-
-# npm,axios,inquire,fs,
-
-# js
+js
