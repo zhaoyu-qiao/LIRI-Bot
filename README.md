@@ -18,11 +18,11 @@ do-what-it-says function takes in the text in the random.txt file, and execute t
 In order to run the app on your own laptop, you would need your own .env file and save your key information in your local folder in the below format:
 
 Spotify API keys
-SPOTIFY_ID=<your SPOTIFY_ID>
-SPOTIFY_SECRET=<your SPOTIFY_SECRET>
+SPOTIFY_ID=your SPOTIFY_ID
+SPOTIFY_SECRET=your SPOTIFY_SECRET
 
 OMDB API key
-OMDB_KEY=<your OMDB_KEY>
+OMDB_KEY=your OMDB_KEY
 
 To run the app, please check out the below video, basically you need to specify the command and the input to retrieve information.
 
