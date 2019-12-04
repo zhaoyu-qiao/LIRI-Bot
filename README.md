@@ -19,6 +19,7 @@ In order to run the app on your own laptop, you would need your own .env file an
 
 Spotify API keys
 SPOTIFY_ID=your SPOTIFY_ID
+
 SPOTIFY_SECRET=your SPOTIFY_SECRET
 
 OMDB API key
