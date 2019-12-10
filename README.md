@@ -16,9 +16,9 @@ This app has a main js file *liri.js* which covers four functions which takes in
 **movie-this** takes in an input of movie name and provides related information about the movie.
 
 ### The above three functions basically require information from their own api:
-[Spotify API](https://www.npmjs.com/package/node-spotify-api)
-[OMDB API](http://www.omdbapi.com/)
-[Bands in Town API](https://www.artists.bandsintown.com/)
+- [Spotify API](https://www.npmjs.com/package/node-spotify-api)
+- [OMDB API](http://www.omdbapi.com/)
+- [Bands in Town API](https://www.artists.bandsintown.com/)
 
 
 **do-what-it-says** function takes in the text in the *random.txt* file, and execute the command written there.
