@@ -4,10 +4,10 @@
 **LIRI** is short for **L**anguage**I**nterpretation and **R**ecognition **I**nterface, what it does is to take in different commands from the user input and display the proper information according to the commands.
 
 ### This app has a main js file *liri.js* which covers four functions which takes in four different commands:
-- **concert-this
-- **spotify-this-song
-- **movie-this
-- **do-what-it-says
+- **concert-this**
+- **spotify-this-song**
+- **movie-this**
+- **do-what-it-says**
 
 **concert-this** takes in an input of an artist and displays the most recent event for this artist.
 
